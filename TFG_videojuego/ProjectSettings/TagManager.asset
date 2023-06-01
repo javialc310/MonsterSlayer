@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Suelo
+  - Personaje
+  - Enemigo
+  - FallDetector
+  - Checkpoint
+  - Moneda
+  - MonedaRoja
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Enemigo
+  - Water
+  - UI
+  - Suelo
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Fondo
+    uniqueID: 3448724287
+    locked: 0
+  - name: Puerta
+    uniqueID: 1843317239
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
