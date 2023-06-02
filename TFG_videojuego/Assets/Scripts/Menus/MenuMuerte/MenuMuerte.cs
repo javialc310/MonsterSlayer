@@ -13,6 +13,7 @@ public class MenuMuerte : MonoBehaviour
     }
 
     public void Reaparecer(){
+        Guardar.BorrarDatos();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Time.timeScale = 1f;
     }

@@ -1073,8 +1073,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 9, y: 65.27457}
-  m_SizeDelta: {x: 382.3894, y: 61.4509}
+  m_AnchoredPosition: {x: -18, y: 74.3154}
+  m_SizeDelta: {x: 450.5435, y: 43.3692}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1568068153
 MonoBehaviour:
@@ -1109,7 +1109,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: HERO TRAVEL
+  m_Text: MONSTER SLAYER
 --- !u!222 &1568068154
 CanvasRenderer:
   m_ObjectHideFlags: 0

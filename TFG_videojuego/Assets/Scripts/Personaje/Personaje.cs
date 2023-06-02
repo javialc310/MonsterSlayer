@@ -151,7 +151,7 @@ public class Personaje : MonoBehaviour
         nivel = SceneManager.GetActiveScene().buildIndex + 1;
         Guardar.GuardarJugador(GameObject.Find("ControladorVida").GetComponent<VidaPersonaje>(),
                                         GetComponent<RecogerMonedas>(), this);
-        SceneManager.LoadSceneAsync(nivel);
+        SceneManager.LoadScene(nivel);
     }
 
     
