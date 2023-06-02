@@ -21,13 +21,8 @@ public class Enemigo : MonoBehaviour
         enemyRb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
-    public void getDamage(int damage){
+    public void ObtenerDamage(int damage){
         if(transform.position.x < player.transform.position.x){
             enemyRb.AddForce(Vector2.left * KBForce, ForceMode2D.Impulse);
         }else{

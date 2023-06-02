@@ -7,27 +7,23 @@ using UnityEngine.UI;
 public class VidaPersonaje : MonoBehaviour
 {
     public int corazones;
-    public Image[] hearts;
+    public Image[] imagenCorazones;
     // Start is called before the first frame update
     void Start()
     {
-        UpdateHearts();
+        ActualizarCorazones();
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
-    public void UpdateHearts(){
-        for (int i = 0; i < hearts.Length; i++){
+    public void ActualizarCorazones(){
+        for (int i = 0; i < imagenCorazones.Length; i++){
             if (i < corazones){
-                hearts[i].color = Color.white;
+                imagenCorazones[i].color = Color.white;
             }else{
-                Color temp = hearts[i].color;
+                Color temp = imagenCorazones[i].color;
                 temp.a=0f;
-                hearts[i].color = temp;
+                imagenCorazones[i].color = temp;
             }
         }
     }

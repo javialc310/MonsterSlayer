@@ -7,11 +7,6 @@ public class MenuPausa : MonoBehaviour
 {
     public static bool pausado = false;
     public GameObject menuPausa;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()

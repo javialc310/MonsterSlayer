@@ -24,7 +24,7 @@ public class Combate : MonoBehaviour
 
         foreach (Collider2D colisionador in objetos){
             if (colisionador.CompareTag("Enemigo")){
-                colisionador.transform.GetComponent<Enemigo>().getDamage(damage);
+                colisionador.transform.GetComponent<Enemigo>().ObtenerDamage(damage);
             }
         }
     }
@@ -32,7 +32,7 @@ public class Combate : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D col){
         if (col.gameObject.tag == "Enemigo"){
             GameObject.Find("ControladorVida").GetComponent<VidaPersonaje>().corazones -= 1;
-            GameObject.Find("ControladorVida").GetComponent<VidaPersonaje>().UpdateHearts();
+            GameObject.Find("ControladorVida").GetComponent<VidaPersonaje>().ActualizarCorazones();
             if(GameObject.Find("ControladorVida").GetComponent<VidaPersonaje>().corazones <= 0){
                 anim.SetTrigger("death");
             }else{

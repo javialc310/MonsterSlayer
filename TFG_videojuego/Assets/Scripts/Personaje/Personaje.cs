@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class movimiento_personaje : MonoBehaviour
+public class Personaje : MonoBehaviour
 {
-    private bool isJumping;
+    private bool estaSuelo;
     public float saltoFuerza;
     public float checkRadius;
     public Transform posicion;
@@ -17,7 +17,7 @@ public class movimiento_personaje : MonoBehaviour
     private float contadorSalto;
     public float tiempoSalto;
     private float moveInput;
-    public float speed;
+    public float velocidad;
     public Vector3 respawnPoint;
     public GameObject fallDetector;
     public int nivel;
@@ -47,7 +47,7 @@ public class movimiento_personaje : MonoBehaviour
             respawnPoint.y = datos.respawnPoint[1];
             respawnPoint.z = datos.respawnPoint[2];
             GameObject.Find("ControladorVida").GetComponent<VidaPersonaje>().corazones=datos.corazones;
-            GameObject.Find("ControladorVida").GetComponent<VidaPersonaje>().UpdateHearts();
+            GameObject.Find("ControladorVida").GetComponent<VidaPersonaje>().ActualizarCorazones();
             posicion.position = respawnPoint;
         }
         
@@ -89,7 +89,7 @@ public class movimiento_personaje : MonoBehaviour
 
     void FixedUpdate(){
         moveInput = Input.GetAxisRaw("Horizontal");
-        rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
+        rb.velocity = new Vector2(moveInput * velocidad, rb.velocity.y);
 
         if (atacando){
             anim.SetTrigger("attack");
@@ -100,9 +100,9 @@ public class movimiento_personaje : MonoBehaviour
     }
 
     void Jumping(){
-        isJumping = Physics2D.OverlapCircle(posicion.position, checkRadius, saberSuelo);
+        estaSuelo = Physics2D.OverlapCircle(posicion.position, checkRadius, saberSuelo);
 
-        if(isJumping && Input.GetKeyDown(KeyCode.Space)){
+        if(estaSuelo && Input.GetKeyDown(KeyCode.Space)){
             rb.velocity = Vector2.up * saltoFuerza;
             contadorSalto = tiempoSalto;
         }
@@ -115,11 +115,11 @@ public class movimiento_personaje : MonoBehaviour
             }
         }
 
-        if (isJumping){
+        if (estaSuelo){
             anim.SetBool("jumping", false);
         }
 
-        if (Input.GetKeyUp(KeyCode.Space) && !isJumping){
+        if (Input.GetKeyUp(KeyCode.Space) && estaSuelo){
             anim.SetBool("jumping", false);
         }
 
@@ -128,7 +128,7 @@ public class movimiento_personaje : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision){
         if(collision.tag == "FallDetector"){
             GameObject.Find("ControladorVida").GetComponent<VidaPersonaje>().corazones -= 1;
-            GameObject.Find("ControladorVida").GetComponent<VidaPersonaje>().UpdateHearts();
+            GameObject.Find("ControladorVida").GetComponent<VidaPersonaje>().ActualizarCorazones();
             ComprobarMuerte();
             transform.position = respawnPoint;
         }

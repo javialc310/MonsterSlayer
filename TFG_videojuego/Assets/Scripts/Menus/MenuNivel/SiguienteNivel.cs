@@ -9,12 +9,12 @@ public class SiguienteNivel : MonoBehaviour
     public GameObject pantallaNivel;
 
     public void PasarNivel(){
-        player.GetComponent<movimiento_personaje>().PasarNivel();
+        player.GetComponent<Personaje>().PasarNivel();
         Time.timeScale = 1f;
     }
 
     public void CargarMenu(){
-        player.GetComponent<movimiento_personaje>().PasarNivel();
+        player.GetComponent<Personaje>().PasarNivel();
         SceneManager.LoadScene("MenuPrincipal");
         Time.timeScale = 1f;
     }
